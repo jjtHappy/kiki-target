@@ -1,0 +1,27 @@
+.reward-detail-image {
+    width: 100%;
+    height: 600rpx;
+}
+
+.reward-detail-wrapper {
+    background-color: white;
+}
+
+.reward-detail-name,.reward-detail-worth,.reward-detail-score,.reward-detail-createtime {
+    padding: 0 18px;
+}
+
+.reward-detail-worth {
+    color: #FF5507;
+    font-size: larger;
+}
+
+.reward-detail-score {
+    color:#999;
+    font-size: medium;
+}
+
+.reward-detail-createtime {
+    color:#999;
+    font-size: small;
+}

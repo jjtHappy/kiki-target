@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-catalog="db_target" match-name="exchange" />
+	<table-filter match-catalog="db_target" match-name="store" />
+	<table-filter match-catalog="db_target" match-name="prize" />
+	<table-filter match-catalog="db_target" match-name="reviewed" />
+	<table-filter match-catalog="db_target" match-name="supervision" />
+	<table-filter match-catalog="db_target" match-name="target" />
+	<table-filter match-catalog="db_target" match-name="user" />
+</hibernate-reverse-engineering>

@@ -1,0 +1,33 @@
+<view class="weui-form-preview reviewed-wrapper">
+  <view wx:for="{{revieweds}}" wx:for-item="reviewed" class="weui-form-preview" style='margin-bottom:10px'>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__label">奖励积分</view>
+      <view class="weui-form-preview__value_in-hd">{{reviewed.targetReward}}</view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">完成时间</view>
+        <view class="weui-form-preview__value">{{reviewed.createTime}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">任务</view>
+        <view class="weui-form-preview__value">{{reviewed.targetContent}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">感想</view>
+        <view class="weui-form-preview__value">{{reviewed.comment}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__ft">
+      <view data-reviewed="{{reviewed}}" bindtap='handleTapReject' class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">否决</view>
+      <view data-reviewed="{{reviewed}}" bindtap='handleTapAgree' class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">同意</view>
+    </view>
+  </view>
+  <view wx:if="{{hasMore}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+  <view wx:else class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+  </view>
+</view>

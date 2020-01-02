@@ -1,0 +1,12 @@
+/* pages/my-reviewed/my-reviewed.wxss */
+.my-reviewed-reviewing {
+  color:aqua
+}
+
+.my-reviewed-completed {
+  color:greenyellow
+}
+
+.my-reviewed-rejected {
+  color:red
+}

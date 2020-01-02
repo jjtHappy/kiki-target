@@ -1,0 +1,20 @@
+<view class="target-complete-wrapper" style='height:{{viewHeight}}px;weight:{{viewWidth}}px'>
+  <view class="weui-article" style='padding-bottom:0px;'>
+    <view class="weui-article__h3">内容：</view>
+    <view class="weui-article__p">
+      {{target.content}}
+    </view>
+    <view class="weui-article__h3">获得奖励：{{target.reward}}</view>
+    <view class="weui-article__h3">审核人：{{superintendent}}</view>
+  </view>
+  <view class="weui-cells__title">感想</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" value='{{comment}}' maxlength='200' bindinput='handleInputComment' placeholder="请输入文本" style="height: 3.3em" />
+        <view class="weui-textarea-counter">{{commentLength}}/200</view>
+      </view>
+    </view>
+  </view>
+  <button class="weui-btn" disabled='{{commitReviewDisabled}}' bindtap='handleTapCommit' type="primary">提交审核</button>
+</view>

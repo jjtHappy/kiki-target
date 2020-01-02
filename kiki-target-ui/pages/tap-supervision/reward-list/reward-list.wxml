@@ -1,0 +1,24 @@
+<view class="reward-list-warpper">
+    <navigator wx:for="{{rewards}}" wx:for-item="reward" url="/pages/tap-supervision/reward-detail/reward-detail?reward={{reward.navigateParams}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <!--<image class="weui-media-box__thumb" src="{{servicePath}}/store/download/picture?storeId={{reward.storeId}}" />-->
+            <image class="weui-media-box__thumb" src="{{reward.storePath}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title reward-list-item-labal">{{reward.name}}</view>
+            <view class="weui-media-box__desc reward-list-item-worth">￥{{reward.worth}}</view>
+            <view class="weui-media-box__desc">分数：{{reward.score}}</view>
+        </view>
+    </navigator>
+
+
+    <view wx:if="{{hasMore}}" class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:else class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+
+    <image class="reward-list-image" bindtap="handleAddReward" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd"  src="{{imagePath}}" style="left: {{viewWidth-80}}px" mode="aspectFit"></image>
+</view>

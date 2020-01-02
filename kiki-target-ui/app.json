@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/tap-target/target-list/target-list",
+    "pages/tap-target/target-detail/target-detail",
+    "pages/tap-target/target-complete/target-complete",
+    "pages/tap-add/target-add/target-add",
+    "pages/tap-supervision/supervision/supervision",
+    "pages/tap-supervision/reviewed-list/reviewed-list",
+    "pages/tap-supervision/target-list/target-list",
+    "pages/tap-supervision/target-detail/target-detail",
+    "pages/tap-supervision/reward-list/reward-list",
+    "pages/tap-supervision/reward-add/reward-add",
+    "pages/tap-supervision/reward-detail/reward-detail",
+    "pages/tap-shop/reward-list/reward-list",
+    "pages/tap-shop/reward-detail/reward-detail",
+    "pages/tap-shop/exchange-detail/exchange-detail",
+    "pages/tap-persion/persion/persion",
+    "pages/tap-persion/reviewed-list/reviewed-list",
+    "pages/tap-persion/exchange-list/exchange-list",
+    "pages/tap-persion/exchange-detail/exchange-detail",
+        "pages/tap-supervision/exchange-list/exchange-list"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#EFEFF4"
+  },
+  "tabBar": {
+    "position": "buttom",
+    "selectedColor": "#99FF00",
+    "list": [
+      {
+        "pagePath": "pages/tap-target/target-list/target-list",
+        "iconPath": "static/images/icon-target.png",
+        "selectedIconPath": "static/images/icon-target-fill.png",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/tap-shop/reward-list/reward-list",
+        "iconPath": "static/images/icon-shop.png",
+        "selectedIconPath": "static/images/icon-shop-fill.png",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/tap-add/target-add/target-add",
+        "iconPath": "static/images/icon-add.png",
+        "selectedIconPath": "static/images/icon-add-fill.png"
+      },
+      {
+        "pagePath": "pages/tap-supervision/supervision/supervision",
+        "iconPath": "static/images/icon-supervision.png",
+        "selectedIconPath": "static/images/icon-supervision-fill.png",
+        "text": "监督"
+      },
+      {
+        "pagePath": "pages/tap-persion/persion/persion",
+        "iconPath": "static/images/icon-persion.png",
+        "selectedIconPath": "static/images/icon-persion-fill.png",
+        "text": "我"
+      }
+    ]
+  }
+}

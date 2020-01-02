@@ -1,0 +1,4 @@
+/* pages/complete-target/complete-target.wxss */
+.target-complete-wrapper{
+  background-color: white
+}

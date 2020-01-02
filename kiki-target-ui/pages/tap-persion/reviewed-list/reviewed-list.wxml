@@ -1,0 +1,51 @@
+<view class="my-reviewed-wrapper">
+  <view wx:for="{{revieweds}}" wx:for-item="reviewed" class="weui-form-preview" style='margin-bottom:10px'>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">状态</view>
+        <view wx:if="{{reviewed.state==1}}" class="weui-form-preview__value_in-hd my-reviewed-reviewing">审核中</view>
+        <view wx:if="{{reviewed.state==2}}" class="weui-form-preview__value_in-hd my-reviewed-completed">已完成</view>
+        <view wx:if="{{reviewed.state==-1}}" class="weui-form-preview__value_in-hd my-reviewed-rejected">未通过</view>
+      </view>
+    </view>
+    <view   class="weui-form-preview__bd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">奖励积分</view>
+        <view class="weui-form-preview__value">{{reviewed.targetReward}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">完成时间</view>
+        <view class="weui-form-preview__value">{{reviewed.createTime}}</view>
+      </view>
+       <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">更新时间</view>
+        <view class="weui-form-preview__value">{{reviewed.updateTime}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">任务</view>
+        <view class="weui-form-preview__value">{{reviewed.targetContent}}</view>
+      </view>
+       <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">感想</view>
+        <view class="weui-form-preview__value">{{reviewed.comment}}</view>
+      </view>
+      <!--<view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">状态</view>
+        <view class="weui-form-preview__value">审核中</view>
+      </view>-->
+    </view>
+    <!--<view class="weui-form-preview__ft">
+      <view wx:if="{{reviewed.state==1}}" class="weui-form-preview__btn weui-form-preview__btn_primary">审核中</view>
+      <view wx:elif="{{reviewed.state==2}}" class="weui-form-preview__btn weui-form-preview__btn_primary">完成</view>
+       <view wx:else class="weui-form-preview__btn weui-form-preview__btn_primary">未通过</view>
+    </view>-->
+  </view>
+
+  <view wx:if="{{hasMore}}" class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+  <view wx:else class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+  </view>
+</view>

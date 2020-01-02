@@ -1,0 +1,18 @@
+<view class="reward-detail-wrapper" style="height: {{viewHeight}}px;width: {{viewWidth}}px">
+    <view  class="reward-detail-image-wrapper" bindtap="handleTapPreviewImage">
+        <image class="reward-detail-image" style="position: static" src="{{reward.storePath}}" mode="aspectFill"/>
+    </view>
+    <view class="reward-detail-name">
+        {{reward.name}}
+    </view>
+    <view class="reward-detail-worth">
+        价值:￥{{reward.worth}}
+    </view>
+    <view class="reward-detail-score">
+        兑换分数:{{reward.score}}
+    </view>
+    <view class="reward-detail-createtime">
+        创建于:{{reward.createTime}}
+    </view>
+    <button  data-reward="{{reward}}"  class="reward-detail-button"  bindtap="handleTapExchange">立即兑换</button>
+</view>

@@ -1,0 +1,4 @@
+/* pages/detail-target/detail-target.wxss */
+.detail-target-wrapper {
+  background-color: white
+}

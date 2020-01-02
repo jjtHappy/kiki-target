@@ -1,0 +1,272 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.kiki</groupId>
+	<artifactId>target</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>target</name>
+	<url>http://maven.apache.org</url>
+	<profiles>
+		<profile>
+			<id>test</id>
+			<properties>
+				<server.port>8080</server.port>
+				<db.host>localhost</db.host>
+				<db.port>3306</db.port>
+				<db.username>root</db.username>
+				<db.password></db.password>
+				<server.ssl.enabled>#</server.ssl.enabled>
+				<server.access_log.enabled>#</server.access_log.enabled>
+				<store.upload.path>H:\\\\target-picture</store.upload.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>pro</id>
+			<properties>
+				<server.port>443</server.port>
+				<db.host>mysql</db.host>
+				<db.port>3306</db.port>
+				<db.username>root</db.username>
+				<db.password>--kiki$2018</db.password>
+				<server.ssl.enabled></server.ssl.enabled>
+				<server.access_log.enabled></server.access_log.enabled>
+				<store.upload.path>/apps/data</store.upload.path>
+			</properties>
+		</profile>
+	</profiles>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<daemon-name>kiki-target</daemon-name>
+		<daemon-mainClass>com.kiki.target.App</daemon-mainClass>
+		<daemon-JAVA_Xms>512M</daemon-JAVA_Xms>
+		<daemon-JAVA_Xmx>512M</daemon-JAVA_Xmx>
+		<alpn.boot.version></alpn.boot.version>
+		<wrapper.ntservice.name>kiki-target</wrapper.ntservice.name>
+		<wrapper.ntservice.displayname>kiki任务管理平台</wrapper.ntservice.displayname>
+		<wrapper.ntservice.description>kiki任务管理平台</wrapper.ntservice.description>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>1.5.9.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.xiaoleilu</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- 复制一次过滤后的资源 -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/extra-resources</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin/usage-daemon-generatorconfig.html -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<!-- 根目录 -->
+					<assembleDirectory>${project.build.directory}/${daemon-name}</assembleDirectory>
+					<!-- 打包的jar，以及maven依赖的jar放到这个目录里面 -->
+					<repositoryName>lib</repositoryName>
+					<!-- 可执行脚本的目录 -->
+					<binFolder>bin</binFolder>
+					<!-- 配置文件的目标目录 -->
+					<configurationDirectory>conf</configurationDirectory>
+					<!-- 拷贝配置文件到上面的目录中 -->
+					<copyConfigurationDirectory>true</copyConfigurationDirectory>
+					<!-- 从哪里拷贝配置文件 (默认src/main/config) -->
+					<configurationSourceDirectory>${basedir}/target/extra-resources</configurationSourceDirectory>
+					<!-- lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录 -->
+					<repositoryLayout>flat</repositoryLayout>
+					<encoding>UTF-8</encoding>
+					<logsDirectory>logs</logsDirectory>
+					<tempDirectory>tmp</tempDirectory>
+
+					<daemons>
+						<daemon>
+							<id>${daemon-name}</id>
+							<mainClass>${daemon-mainClass}</mainClass>
+							<platforms>
+								<platform>jsw</platform>
+							</platforms>
+							<jvmSettings>
+								<initialMemorySize>${daemon-JAVA_Xmx}</initialMemorySize>
+								<maxMemorySize>${daemon-JAVA_Xmx}</maxMemorySize>
+								<extraArguments>
+									<!-- Note : if the value is empty the plugin will throw NullPointerException -->
+									<extraArgument>-Djava.wrapper=1</extraArgument>
+									<extraArgument>-Djava.awt.headless=true</extraArgument>
+									<extraArgument>-Duser.timezone=GMT+8</extraArgument>
+									<extraArgument>-Xbootclasspath/p:lib/alpn-boot-${alpn.boot.version}.jar</extraArgument>
+									<extraArgument>-Dapp=${daemon-name}</extraArgument>
+									<extraArgument>-XX:MaxPermSize=128m</extraArgument>
+									<extraArgument>-XX:+UseParNewGC</extraArgument>
+									<extraArgument>-XX:+CMSParallelRemarkEnabled</extraArgument>
+									<extraArgument>-XX:+UseConcMarkSweepGC</extraArgument>
+								</extraArguments>
+							</jvmSettings>
+							<generatorConfigurations>
+								<generatorConfiguration>
+									<generator>jsw</generator>
+									<includes>
+										<include>linux-x86-32</include>
+										<include>linux-x86-64</include>
+										<include>macosx-universal-64</include>
+										<include>macosx-universal-32</include>
+										<include>windows-x86-32</include>
+										<include>windows-x86-64</include>
+									</includes>
+									<configuration>
+										<property>
+											<name>configuration.directory.in.classpath.first</name>
+											<value>conf</value>
+										</property>
+										<property>
+											<name>set.default.REPO_DIR</name>
+											<value>lib</value>
+										</property>
+										<property>
+											<name>wrapper.java.command</name>
+											<value>%JAVA_HOME%/bin/java</value>
+										</property>
+										<property>
+											<name>wrapper.logfile</name>
+											<value>logs/wrapper.log</value>
+										</property>
+										<property>
+											<name>wrapper.startup.timeout</name>
+											<value>7200</value><!-- 2小时 -->
+										</property>
+										<property>
+											<name>wrapper.ping.timeout</name>
+											<value>3600</value><!-- 1小时 -->
+										</property>
+										<property>
+											<name>wrapper.ntservice.name</name>
+											<value>${wrapper.ntservice.name}</value>
+										</property>
+										<property>
+											<name>wrapper.ntservice.displayname</name>
+											<value>${wrapper.ntservice.displayname}</value>
+										</property>
+										<property>
+											<name>wrapper.ntservice.description</name>
+											<value>${wrapper.ntservice.description}</value>
+										</property>
+										<property>
+											<name>wrapper.console.title</name>
+											<value>${wrapper.ntservice.name}</value>
+										</property>
+										<property>
+											<!-- pid文件存放路径 -->
+											<name>wrapper.pidfile</name>
+											<value>$BASEDIR/bin</value>
+										</property>
+										<property>
+											<!-- 如果pid文件已经存在则不启动程序 -->
+											<name>wrapper.pidfile.strict</name>
+											<value>TRUE</value>
+										</property>
+									</configuration>
+								</generatorConfiguration>
+							</generatorConfigurations>
+						</daemon>
+					</daemons>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

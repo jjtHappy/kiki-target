@@ -1,0 +1,8 @@
+/* pages/add-target/add-target.wxss */
+.target-add-wrapper{
+  background-color: white;
+}
+
+.target-add-button {
+
+}

@@ -1,0 +1,42 @@
+<view class="target-add-wrapper" >
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">截止日期：</view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker mode="date" value="{{deadline}}" start="{{this.data.now}}" bindchange="handleChangeDate">
+                <view class="weui-input">{{deadline==null?"请输入时间":deadline}}</view>
+            </picker>
+        </view>
+    </view>
+    <view class="weui-cells__tips">截止时间应当大于当前时间</view>
+
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">奖励分数：</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" value="{{reward}}" bindinput="handleInputReward" type="number" maxlength="3"
+                   placeholder="请输入奖励分数"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">惩罚分数：</view>
+        </view>
+        <view class="weui-cell__bd ">
+            <input class="weui-input" value="{{punishment}}" bindinput='handleInputPunishment' type="number"
+                   maxlength="3" placeholder="请输入惩罚分数"/>
+        </view>
+    </view>
+    <view class="weui-cells__tips">分数范围应该大于0小于999</view>
+    <view class="weui-cells__title">任务内容不能超过200字</view>
+    <view class="weui-cell weui-cells_after-title">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入任务内容" value="{{content}}" bindinput="handleInputContent"
+                      style="height: 3.3em" maxlength="200"/>
+            <view class="weui-textarea-counter">{{contentLength}}/200</view>
+        </view>
+    </view>
+    <button class="weui-btn target-add-button" bindtap="handleTapAdd" disabled="{{addDisabled}}" type="primary">添加</button>
+</view>

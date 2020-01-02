@@ -1,0 +1,10 @@
+<view class="reward-list-wrapper">
+    <navigator url="/pages/tap-shop/reward-detail/reward-detail?reward={{reward.navigateParams}}" wx:for="{{rewards}}" wx:for-item="reward" class="reward-list-item" style="height:{{viewHeight/2}}px;width: {{viewWidth/2}}px">
+        <image class="reward-list-item-image" src="{{reward.storePath}}"/>
+        <view class="reward-list-item-name">{{reward.name}}</view>
+        <view class="reward-list-item-pay">
+            <view class="reward-list-item-worth">￥{{reward.worth}}</view>
+            <view class="reward-list-item-score">分数：{{reward.score}}</view>
+        </view>
+    </navigator>
+</view>

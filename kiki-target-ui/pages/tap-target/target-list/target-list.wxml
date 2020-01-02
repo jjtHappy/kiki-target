@@ -1,0 +1,33 @@
+<view class="target-list-wrapper" style="height: 100%;display: block; background-color: #EFEFF4;">
+
+    <view class="target-list-picker-wrapper">
+        <view class="target-list-picker-states">
+            <picker class="target-list-picker-states-picker" bindchange="handleStatesChange" value="{{statesIndex}}" range="{{states}}" range-key="value">
+                <view class="weui-select">{{states[statesIndex].value}}</view>
+            </picker>
+        </view>
+    </view>
+    <view class="target-list-items-wrapper">
+        <view wx:for="{{targets}}" data-target="{{target}}" bindtap="handleTapTargetDetail" wx:for-item="target"
+              class="weui-panel" style="margin-bottom: 10px;">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <!-- <view class="weui-media-box__title weui-media-box__title_in-text">{{target.deadline}}</view>-->
+                    <view class="weui-media-box__desc">{{target.content}}</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">{{target.stateName}}</view>
+                        <view class="weui-media-box__info__meta">{{target.deadline}}截止</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+{{target.reward}}
+                        </view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">-{{target.punishment}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{hasMore}}" class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+</view>

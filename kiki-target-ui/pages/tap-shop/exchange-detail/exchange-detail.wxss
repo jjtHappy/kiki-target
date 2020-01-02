@@ -1,0 +1,4 @@
+/* pages/tap-shop/exchange-detail/exchange-detail.wxss */
+.exchange-detail-wrapper {
+    background-color: white;
+}

@@ -1,0 +1,30 @@
+/* pages/target/target.wxss */
+.target-list-wrapper {
+  background-color: white
+}
+
+
+.target-list-picker-wrapper {
+  position: fixed;
+  top: 0px;
+  display: block;
+  z-index:2;
+  background: #ffffff;
+  width: 100%;
+  box-shadow:0px 0px 5px #888888;
+
+}
+
+.target-list-items-wrapper {
+  margin-top: 50px;
+  z-index:1
+}
+
+.target-list-picker-states-picker {
+  display: inline-block;
+  height: 100%;
+}
+
+.target-list-picker-states {
+
+}

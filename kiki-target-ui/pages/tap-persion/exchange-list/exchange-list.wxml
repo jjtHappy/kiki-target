@@ -1,0 +1,20 @@
+<view>
+    <view bindtap="handleTapItem" data-exchange="{{exchange}}" hover-class="exchange-list-item-hover" wx:for="{{exchanges}}" wx:for-item="exchange" class="weui-form-preview" style="margin-bottom: 10px">
+        <view class="weui-form-preview__hd">
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">兑换积分</view>
+                <view class="weui-form-preview__value_in-hd">{{exchange.cost}}</view>
+            </view>
+        </view>
+        <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">奖品</view>
+                <view class="weui-form-preview__value">{{exchange.prizeName}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">兑换时间</view>
+                <view class="weui-form-preview__value">{{exchange.createTime}}</view>
+            </view>
+        </view>
+    </view>
+</view>

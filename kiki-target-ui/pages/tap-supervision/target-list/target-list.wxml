@@ -1,0 +1,25 @@
+<view class="target-list-wrapper">
+    <view  class="weui-panel" style="background-color: #EFEFF4">
+        <block wx:for="{{targets}}" wx:for-item="target">
+            <view class="weui-panel__bd" bindtap="handleTapDetail" data-target="{{target}}"  style="background-color: white;margin-bottom: 10px">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">奖励积分：{{target.reward}}</view>
+                    <view class="weui-media-box__desc">{{target.content}}</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">截止时间</view>
+                        <view class="weui-media-box__info__meta">{{target.deadline}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{target.stateName}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <view wx:if="{{hasMore}}" class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:else class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+</view>

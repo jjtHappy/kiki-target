@@ -1,0 +1,45 @@
+.reward-list-item {
+    display: inline-block;
+    background: white;
+}
+
+.reward-list-item-image {
+    width: 98%;
+    height: 75%;
+}
+
+.reward-list-item-name,.reward-list-item-pay {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.reward-list-item-name {
+    height: 10%;
+    overflow: hidden;
+}
+
+.reward-list-item-pay {
+    height: 10%;
+    display:-webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.reward-list-item-worth,.reward-list-item-score{
+    display: inline;
+}
+
+.reward-list-item-worth {
+    color: #FF5507;
+    margin-right: 5%;
+}
+
+.reward-list-item-score {
+    color:#999;
+    font-size: smaller;
+}
+

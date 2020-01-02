@@ -1,0 +1,5 @@
+/* pages/reviewed/reviewed.wxss */
+.reviewed-wrapper {
+  background-color: #EFEFF4;
+}
+

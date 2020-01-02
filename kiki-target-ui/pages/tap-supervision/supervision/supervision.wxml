@@ -1,0 +1,42 @@
+<view class='weui-cells'>
+  <view class="weui-cell">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <image src="/static/images/icon-overseen.png" style="width: 50px; height: 50px; display: block" />
+    </view>
+    <view class="weui-cell__bd">
+      <view>{{superintendent}}</view>
+      <view style="font-size: 13px;color: #888888;">累积积分：{{superintendentAmount}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='weui-cells'>
+ <view hover-class="hover" class="weui-cell weui-cell_access">
+    <view bindtap='handleTapTargets' class="weui-cell__bd">
+      <view style="display: inline-block; vertical-align: middle">他的任务列表</view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+  <view bindtap='handleTapReviewed' hover-class="hover"  class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">
+      <view style="display: inline-block; vertical-align: middle">他的审核列表</view>
+      <view wx:if="{{unreatedCount>0}}" class="weui-badge" style="margin-left: 5px;">{{unreatedCount}}</view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+</view>
+
+<view class="weui-cells">
+   <view bindtap="handleTapRewardList" hover-class="hover" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">
+      <view style="display: inline-block; vertical-align: middle">奖品列表</view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+  <view bindtap="handleTapExchangeList" hover-class="hover" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">
+      <view style="display: inline-block; vertical-align: middle">兑换记录</view>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+.reward-list-warpper{
+    background-color: white;
+}
+.reward-list-image{
+    display: block;
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    top: 350px;
+}
+
+.reward-list-item-worth {
+    color: #FF5507;
+}

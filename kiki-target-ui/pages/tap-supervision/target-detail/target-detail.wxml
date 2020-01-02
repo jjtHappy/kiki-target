@@ -1,0 +1,13 @@
+<view class='detail-target-wrapper' style='height:{{viewHeight}}px;width:{{viewWidth}}px'>
+  <view class="weui-article" style='padding-bottom:0px'>
+    <view class="weui-article__h1">任务详情：</view>
+    <view class="weui-article__h3">截止时间：{{target.deadline}}</view>
+    <view class="weui-article__h3">获得奖励：{{target.reward}}</view>
+    <view class="weui-article__h3">超时惩罚：{{target.punishment}}</view>
+    <view class="weui-article__h3">任务当前状态：{{target.stateName}}</view>
+    <view class="weui-article__h3">创建时间：{{target.createTime}}</view>
+    <view class="weui-article__h3">最后修改时间：{{target.updateTime}}</view>
+    <view class="weui-article__p">内容：{{target.content}}
+    </view>
+  </view>
+</view>

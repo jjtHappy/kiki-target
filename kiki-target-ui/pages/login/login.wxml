@@ -1,0 +1,27 @@
+<view class='login-wrapper' style='height:{{viewHeight}}px;width:{{viewWidth}}px'>
+  <view class="login-icon">
+    <image class="login-img" src="../../static/images/icon-logo.png"></image>
+  </view>
+  <view class="login-from">
+    <!--账号-->
+    <view class="inputView">
+      <image class="nameImage" src="../../static/images/icon-account.png"></image>
+      <label class="loginLab">账号</label>
+      <input class="inputText" value="{{account}}" placeholder="请输入账号" maxlength="11" bindinput="handleInputAccount" />
+    </view>
+    <view class="line"></view>
+    <!--密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../../static/images/icon-password.png"></image>
+      <label class="loginLab">密码</label>
+      <input class="inputText" password="true" value="{{password}}" maxlength="20" placeholder="请输入密码" bindinput="handleInputPassword" />
+    </view>
+    <!--按钮-->
+    <view class="loginBtnView">
+      <button type="primary"   bindtap="handleTapLogin">登录</button>
+    </view>
+  </view>
+    <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-footer__text">粤ICP备18035307号</view>
+        </view>
+</view>

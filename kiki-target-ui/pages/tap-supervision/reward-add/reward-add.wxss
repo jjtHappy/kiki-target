@@ -1,0 +1,26 @@
+/* pages/tap-supervision/reward-add/reward-add.wxss */
+.reward-add-image, .reward-add-button, .reward-add-rate {
+    width: 100%;
+    height: 200px;
+}
+
+.reward-add-wapper {
+    background-color: white;
+}
+
+.reward-add-rate {
+    display: block;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    background-color: #000000;
+    opacity: 0.2;
+}
+
+.reward-add-rate p {
+    font-size: 50px;
+    display: block;
+    margin-top: 20%;
+    color: #FFFFFF;
+}
+

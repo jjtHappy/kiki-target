@@ -1,0 +1,38 @@
+<view class="reward-add-wapper">
+    <view wx:if="{{imagePath!=''}}" class="reward-add-image-wrapper" bindtap="handleTapChooseImage">
+        <image class="reward-add-image" style="position: static" src="{{imagePath}}" mode="aspectFill"/>
+        <view wx:if="{{showRate}}" class="reward-add-rate">
+            <p>上传中..{{uploadRate}}%</p>
+        </view>
+    </view>
+    <view wx:else class="weui-uploader__input-box reward-add-button">
+        <view class="weui-uploader__input" bindtap="handleTapChooseImage"></view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入奖品名称" value="{{name}}" bindinput="handleInputName"
+                      style="height: 3.3em" maxlength="100"/>
+            <view class="weui-textarea-counter">{{nameLength}}/100</view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">奖品价格：</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" value="{{worth}}" bindinput="handleInputWorth" type="number" maxlength="5"
+                   placeholder="请输入奖品价格"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">兑换分数：</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" value="{{score}}" bindinput='handleInputScore' type="number"
+                   maxlength="5" placeholder="请输入兑换分数"/>
+        </view>
+    </view>
+    <view class="weui-cells__tips">分数与价格范围应该大于0小于99999</view>
+    <button class="weui-btn" bindtap="handleTapAdd" disabled="{{addDisabled}}" type="primary">添加</button>
+</view>
